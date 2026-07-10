@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voltan Games - Corporate Operations Blueprint</title>
+    <style>
+        :root {
+            --cyan-primary: #00ffff;
+            --cyan-dark: #00cccc;
+            --charcoal: #1a1a1a;
+            --grey-text: #808080;
+            --bg-white: #ffffff;
+            --bg-light: #f9f9f9;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: var(--charcoal);
+            line-height: 1.6;
+            display: flex;
+        }
+
+        /* App Workspace Layout */
+        #control-panel {
+            width: 320px;
+            background-color: var(--charcoal);
+            color: white;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        .panel-header h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .panel-header p {
+            color: #aaa;
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .nav-item {
+            padding: 0.75rem 1rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background: rgba(0, 255, 255, 0.1);
+            border-left-color: var(--cyan-primary);
+            color: var(--cyan-primary);
+        }
+
+        .action-btn {
+            background-color: var(--cyan-primary);
+            color: var(--charcoal);
+            border: none;
+            padding: 1rem;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            box-shadow: 0 4px 14px rgba(0, 255, 255, 0.3);
+        }
+
+        .action-btn:hover {
+            background-color: var(--cyan-dark);
+        }
+
+        /* Document Viewer Pane */
+        #document-viewer {
+            margin-left: 320px;
+            flex-grow: 1;
+            padding: 3rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .document-page {
+            background-color: var(--bg-white);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4rem 3.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-radius: 2px;
+            position: relative;
+        }
+
+        /* Precise Branding & Headers */
+        .wavy-header-container {
+            position: relative;
+            background-color: var(--charcoal);
+            padding: 2.5rem 1rem;
+            text-align: center;
+            border-radius: 6px;
+            margin-bottom: 3.5rem;
+            overflow: hidden;
+        }
+
+        .wavy-header-container svg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            fill: var(--bg-white);
+        }
+
+        .main-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+            position: relative;
+            z-index: 10;
+            color: white;
+        }
+
+        .main-title .initial-tint {
+            color: var(--grey-text);
+        }
+
+        .sub-blueprint-title {
+            color: var(--cyan-primary);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-top: 0.5rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Typography Hierarchy */
+        h2.section-heading {
+            font-size: 1.6rem;
+            color: var(--charcoal);
+            border-bottom: 2px solid var(--charcoal);
+            padding-bottom: 0.4rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            page-break-after: avoid;
+        }
+
+        h3.subsection-heading {
+            font-size: 1.15rem;
+            color: #2c3e50;
+            margin-top: 1.5rem;
+            margin-bottom: 0.6rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            page-break-after: avoid;
+        }
+
+        h3.subsection-heading::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 18px;
+            background-color: var(--cyan-dark);
+            border-radius: 2px;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+            color: #333;
+            font-size: 0.975rem;
+        }
+
+        /* UI Elements & Blocks */
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            background-color: var(--bg-light);
+            padding: 1.25rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 2.5rem;
+        }
+
+        .meta-item span {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: #777;
+            letter-spacing: 0.5px;
+        }
+
+        .meta-item strong {
+            font-size: 0.95rem;
+            color: var(--charcoal);
+        }
+
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+            font-size: 0.975rem;
+        }
+
+        .formula-callout {
+            background-color: var(--bg-light);
+            border-left: 4px solid var(--charcoal);
+            padding: 1rem 1.25rem;
+            margin: 1.2rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .formula-callout code {
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            font-size: 1rem;
+            color: #000;
+        }
+
+        .badge {
+            background-color: #eee;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Print Optimization Stylesheet */
+        @media print {
+            body {
+                background-color: white;
+                color: black;
+            }
+            #control-panel {
+                display: none !important;
+            }
+            #document-viewer {
+                margin-left: 0 !important;
+                padding: 0 !important;
+                display: block;
+            }
+            .document-page {
+                box-shadow: none !important;
+                padding: 0 !important;
+                width: 100%;
+                max-width: 100%;
+            }
+            .wavy-header-container {
+                background-color: #1a1a1a !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                border: 1px solid #1a1a1a;
+            }
+            .main-title {
+                color: white !important;
+            }
+            .main-title .initial-tint {
+                color: #808080 !important;
+            }
+            .sub-blueprint-title {
+                color: #00ffff !important;
+            }
+            .formula-callout {
+                background-color: #f5f5f5 !important;
+                border-left: 4px solid black !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .section-block {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dynamic Control Panel Side-Deck -->
+    <div id="control-panel">
+        <div class="panel-header">
+            <h2>Voltan Workspace</h2>
+            <p>Operations & Business Blueprint Engine</p>
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item active" onclick="scrollToSection('sec-legal')">1. Strategy & Legal</li>
+                    <li class="nav-item" onclick="scrollToSection('sec-dev')">2. App & Web Framework</li>
+                    <li class="nav-item" onclick="scrollToSection('sec-print')">3. 3D Print Processing</li>
+                    <li class="nav-item" onclick="scrollToSection('sec-retail')">4. Storefront Blueprint</li>
+                    <li class="nav-item" onclick="scrollToSection('sec-analytics')">5. Analytics & Loyalty</li>
+                    <li class="nav-item" onclick="scrollToSection('sec-community')">6. Community Engineering</li>
+                </ul>
+            </nav>
+        </div>
+        <button class="action-btn" onclick="window.print()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            Export Document as PDF
+        </button>
+    </div>
+
+    <!-- Active Document Live Preview Canvas -->
+    <div id="document-viewer">
+        <div class="document-page" id="printable-document">
+            
+            <!-- Corporate Brand Header Bracket -->
+            <div class="wavy-header-container">
+                <h1 class="main-title"><span class="initial-tint">V</span>oltan <span class="initial-tint">G</span>ames</h1>
+                <div class="sub-blueprint-title">Unified Corporate Operations Manual</div>
+                <!-- Precision SVG Wavy Aesthetic Separator -->
+                <svg viewBox="0 0 1440 74" preserveAspectRatio="none">
+                    <path d="M0,32 C240,74.6666667 480,96 720,96 C960,96 1200,74.6666667 1440,32 L1440,74 L0,74 Z"></path>
+                </svg>
+            </div>
+
+            <!-- Metadata Deck -->
+            <div class="meta-grid">
+                <div class="meta-item">
+                    <span>Corporate Entity Structure</span>
+                    <strong>Private Company (Proprietary Limited)</strong>
+                </div>
+                <div class="meta-item">
+                    <span>Founding Directors</span>
+                    <strong>Faheem & Jesse</strong>
+                </div>
+                <div class="meta-item">
+                    <span>Core Core Operations</span>
+                    <strong>Indie Dev Studio & Rapid Prototyping Lab</strong>
+                </div>
+                <div class="meta-item">
+                    <span>Security Clearance Baseline</span>
+                    <strong>POPIA & PCI-DSS Tokenized Compliant</strong>
+                </div>
+            </div>
+
+            <!-- SECTION 1 -->
+            <div class="section-block" id="sec-legal">
+                <h2 class="section-heading">1. Corporate Strategy & Legal Foundations</h2>
+                
+                <h3 class="subsection-heading">1.1 Core Mission & Strategic Ideals</h3>
+                <p>Voltan Games operates as a dual-ecosystem studio that merges digital software development with custom physical manufacturing. Our ultimate mission is to build an ecosystem that balances profitable commercial engineering with active community empowerment. We design, prototype, and manufacture custom consumer items while maintaining an accessible open-source framework that invites independent creators into our commercial pipelines.</p>
+                
+                <h3 class="subsection-heading">1.2 Corporate Registration Parameters</h3>
+                <p>To secure our brand equity, intellectual property rights, and commercial liability limits, the company will be legally registered as a private entity. The operational structure will clear legal pathways to manage three distinct operational branches under a unified corporate banner:</p>
+                <ul>
+                    <li><strong>Voltan Games:</strong> Head systems division focused on digital application architecture, game design, and intellectual property.</li>
+                    <li><strong>Voltan Tech:</strong> Advanced software utilities, engineering tools, and standalone system tools division.</li>
+                    <li><strong>Voltan Printing:</strong> Hardware fabrication lab, specialized keychains, structural components, and print-on-demand fulfillment.</li>
+                </ul>
+
+                <h3 class="subsection-heading">1.3 Data Privacy & Multi-Tenant Security Standards</h3>
+                <p>Our operational infrastructure maintains a strict data segregation design to maximize client trust and ensure airtight adherence to modern regulatory frameworks (such as POPIA). No raw payment card profiles, bank account data, or unhashed login tokens will ever touch or reside within Voltan Games' physical or cloud servers.</p>
+                <p>All sensitive authentication credentials will be preserved through secure, salted cryptographic hashing. Transaction handling will be wholly offloaded to isolated, heavily encrypted third-party payment gateways via tokenized payment frameworks. The local customer database will hold only non-sensitive preferences, including basic profile indicators, safe purchase histories, and verification emails.</p>
+            </div>
+
+            <!-- SECTION 2 -->
+            <div class="section-block" id="sec-dev">
+                <h2 class="section-heading">2. App & Web Development Architecture</h2>
+                
+                <h3 class="subsection-heading">2.1 Native App Ecosystem Specification</h3>
+                <p>The Voltan Games application functions as our primary direct-to-consumer storefront and account management portal. Built with intuitive cross-platform frameworks, the application relies on an isolated three-tier framework:</p>
+                <ul>
+                    <li><strong>Landing Matrix:</strong> Dynamic services view showcasing real-time design outputs, active code repos, and digital game releases.</li>
+                    <li><strong>Persistent Navigation Framework:</strong> A clear, responsive navigation system directing users smoothly between the Home Interface, Game Repositories, 3D Model Repos, Merchandise Hub, and Corporate Dossier.</li>
+                    <li><strong>Onboarding & Session Vault:</strong> An authenticated profile engine storing user preferences, automated shipping routing, and print queue tracking without storing sensitive data.</li>
+                </ul>
+
+                <h3 class="subsection-heading">2.2 Web Architecture Layout</h3>
+                <p>Our web presence provides low-latency discoverability across all search channels. The front-end is designed with a striking, high-contrast aesthetic featuring a pure white backdrop complemented by deep black typography and our signature cyan layouts:</p>
+                
+                <p><strong>Primary Node (index.html):</strong> Features a clean, bold, top-centered corporate title with initials split in grey and secondary text in white, overlaying a custom wavy cyan header graphic. Below this layout sits a clean, semantic three-column grid showcase:</p>
+                <ul>
+                    <li><code>Games Hub Block:</code> Highlights our in-house gaming titles, supported by live imagery and the callout: <em>"Check out our game collection we built."</em></li>
+                    <li><code>Fabrication Hub Block:</code> Showcases an interactive gallery of recent physical prints, material selection tips, and quick quote entry tools.</li>
+                    <li><code>Open-Source Grid:</code> Provides direct links to public code repositories, utility scripts, and open-source CAD templates.</li>
+                </ul>
+
+                <p><strong>Secondary Catalog Node (GameSection.html):</strong> Carries over our signature wavy header style to keep the brand image consistent while running a lightweight card layout to host game build downloads, patch release notes, and web-playable builds.</p>
+            </div>
+
+            <!-- SECTION 3 -->
+            <div class="section-block" id="sec-print">
+                <h2 class="section-heading">3. 3D Printing Production & Custom Quotes</h2>
+                
+                <h3 class="subsection-heading">3.1 Corporate Multiplier & Pricing Tiers</h3>
+                <p>To eliminate manual pricing guesswork and maintain healthy, scalable profits across our inventory, we calculate retail pricing by feeding total production costs (comprising raw material weights, utility consumption, and machine wear factors) through a rigid, tier-based cost multiplier structure:</p>
+                
+                <div class="formula-callout">
+                    Retail Price Equation: <code>Retail Price = Production Cost × Tier Multiplier</code>
+                </div>
+
+                <ul>
+                    <li><strong>Tier 1: Micro Portfolio (Keychains, Fidgets, Miniatures)</strong>
+                        <br><em>Rule:</em> Pricing uses a strict 2x Cost Multiplier (100% Markup), delivering a 50% gross profit margin. This approach keeps community entry points affordable while recovering basic processing expenses.
+                    </li>
+                    <li><strong>Tier 2: Functional Mid-Scale Prints (Phone Stands, Utility Fixtures)</strong>
+                        <br><em>Rule:</em> Pricing uses a 3x Cost Multiplier (200% Markup), delivering a 66.7% profit margin. This safely covers extended machine runtime risks and active build-plate allocation.
+                    </li>
+                    <li><strong>Tier 3: Complex Mechanical Engineering (Helmets, Display Cars, RC Sub-Assemblies)</strong>
+                        <br><em>Rule:</em> Pricing uses a 10x Cost Multiplier (900% Markup), delivering a 90% profit margin. This comprehensive margin absorbs the costs of custom CAD modifications, intensive support removal, multi-part assembly labor, and print failure risks.
+                    </li>
+                </ul>
+
+                <h3 class="subsection-heading">3.2 Custom Quotation Intake Requirements</h3>
+                <p>Before issuing binding estimates for bespoke printing jobs, customers must submit three primary design data parameters through our intake forms:</p>
+                <ul>
+                    <li><strong>Volumetric Enclosure Size:</strong> The absolute 3D bounding box dimensions of the model, measured in millimeters. Multi-part assemblies must clearly detail the bounding box for each independent component.</li>
+                    <li><strong>Operational Stress Profile:</strong> The real-world application environment of the part. This maps out exposure to UV sunlight, chemical/moisture contact, high mechanical shear forces, and elevated thermal thresholds (e.g., automotive interior cabins).</li>
+                    <li><strong>Material Requirements:</strong> Client-selected materials or structural recommendations made by our engineering team based on the part's stress profile (PLA for aesthetics, PETG for chemical and moisture resistance, or high-temperature ABS/ASA for demanding automotive components).</li>
+                </ul>
+
+                <h3 class="subsection-heading">3.3 Production Cost Estimation Logic</h3>
+                <p>To project production costs before a print job starts, our quoting engine runs a simulation using primitive bounding volumes at distinct densities to map out a safe variance range:</p>
+                <ul>
+                    <li><strong>Volumetric Profiling:</strong> The engine converts the part's bounding box into a solid solid block. It then simulates printing this block at a low baseline (50% infill) and a high baseline (100% infill) to map a safe variance range for material weight and machine time.</li>
+                    <li><strong>Dynamic Parameter Variance:</strong> The final quotation automatically adjusts within this range by factoring in actual slicing settings: print speeds, orientation, support material structures, and specialized infill geometry styles (such as Gyroid infill for structural strength).</li>
+                </ul>
+            </div>
+
+            <!-- SECTION 4 -->
+            <div class="section-block" id="sec-retail">
+                <h2 class="section-heading">4. Retail Storefront Operations</h2>
+                
+                <h3 class="subsection-heading">4.1 Brand Identity & Store Name Selection</h3>
+                <p>The brick-and-mortar storefront will adopt one of our three core structural names, depending on local market demographics and retail goals: <strong>Voltan Games</strong> (for a gaming and hobby focus), <strong>Voltan Tech</strong> (for an engineering and software focus), or <strong>Voltan Printing</strong> (for a pure manufacturing and maker focus).</p>
+                
+                <h3 class="subsection-heading">4.2 Architectural Floor Plan Split</h3>
+                <p>The layout of our physical retail location is divided into two distinct zones to balance modern customer experiences with efficient, industrial-grade production pipelines:</p>
+                <ul>
+                    <li><strong>Front-of-House Experience Center:</strong> Features minimalist display shelving holding premium, finished prints, rotating inventory items, and custom brand apparel. Touchscreen display kiosks allow visitors to browse our digital game catalogs and customize print configurations in real time.</li>
+                    <li><strong>Back-of-House Print Lab:</strong> A dedicated, secure workshop area housing multi-tier print farms on robust shelving. Includes dedicated dry-boxes for climate-sensitive filaments, storage for raw merch blanks, and localized workspace tables for post-processing and assembly.</li>
+                </ul>
+            </div>
+
+            <!-- SECTION 5 -->
+            <div class="section-block" id="sec-analytics">
+                <h2 class="section-heading">5. Analytics & Loyalty Operations</h2>
+                
+                <h3 class="subsection-heading">5.1 Data-Driven Inventory Optimization</h3>
+                <p>Our inventory pipelines use live analytics data to track customer buying patterns and velocity metrics. We constantly monitor two primary indicators:</p>
+                <ul>
+                    <li><strong>Average Order Value (AOV):</strong> Measures the average capital spent per transaction, showing us exactly how much customers are willing to pay for premium versus standard options.</li>
+                    <li><strong>Days Sales Velocity (DSV):</strong> Measures the exact speed at which an item line sells out. High-velocity items automatically trigger increased manufacturing runs, while low-velocity lines are systematically phased out to free up shelf space and machine runtime.</li>
+                </ul>
+
+                <h3 class="subsection-heading">5.2 Experience-Focused Customer Retention</h3>
+                <p>Voltan Games views customer loyalty as our highest operational standard. To encourage repeat business and elevate the brand experience, we use an automated promotional bundling model: every apparel purchase automatically includes a free, premium custom keychain. This introduces customers to our 3D fabrication capabilities while providing immediate, tangible value-add rewards.</p>
+            </div>
+
+            <!-- SECTION 6 -->
+            <div class="section-block" id="sec-community">
+                <h2 class="section-heading">6. Community Engineering & Giveaways</h2>
+                
+                <h3 class="subsection-heading">6.1 Open Consignment & Royalty Models</h3>
+                <p>To build a thriving, open creator ecosystem, our retail space operates an open design consignment program. Independent community designers can submit their custom 3D models to our catalog for store production and retail sale. Designers retain 100% ownership of their intellectual property, hold full rights to submit design iterations, and can revoke their commercial listing at any time. Voltan Games manages all local printing, fulfillment, and retail transactions, distributing clear, pre-negotiated royalty payments for every unit sold.</p>
+                
+                <h3 class="subsection-heading">6.2 Legal Frameworks for Youth Creators</h3>
+                <p>To keep our community model fully compliant with local contract law, the consignment program uses a dual-tier onboarding framework based on creator age:</p>
+                <ul>
+                    <li><strong>Adult Tier (Ages 18+):</strong> Creators hold full legal capacity to sign our standard Terms and Conditions, IP Licenses, and Royalty Disbursement Agreements directly.</li>
+                    <li><strong>Youth Tier (Ages 15–17):</strong> To ensure agreements are fully binding and legally enforceable, minor creators must submit a formal <strong>Parental/Guardian Co-Signatory Framework</strong>. The legal guardian must co-sign the terms, authorizing royalty payouts to an account under the guardian's management on behalf of the minor creator.</li>
+                </ul>
+
+                <h3 class="subsection-heading">6.3 Promotional Structure & Giveaway Mechanics</h3>
+                <p>Our promotional strategies drive customer acquisition while maintaining a highly engaging, rewarding brand experience through structured giveaways:</p>
+                <ul>
+                    <li><strong>High-Tier Premium Giveaways:</strong> Targets high-ticket items (such as custom gaming rigs or production-grade 3D printers). Entry parameters use a minimum purchase entry point calculated from our live AOV data to ensure promotional expenses are fully offset by sales margins.</li>
+                    <li><strong>Multi-Winner Distribution Rule:</strong> To maximize community participation and satisfaction, high-value promotional prize pools are split among multiple winners (e.g., distributing a total prize pool across ten winners instead of one) to drastically improve individual winning odds and boost overall campaign engagement.</li>
+                    <li><strong>Zero-Cost Engagement Loops:</strong> Low-cost, zero-barrier promotional events run on a regular weekly or monthly cycle. These giveaways feature digital items like game keys for our house-developed titles or external releases, creating a steady stream of traffic to our web portals at almost zero cost to the company.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Scripting for UI Navigation Handling -->
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                
+                // Update active navigation state
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                event.currentTarget.classList.add('active');
+            }
+        }
+
+        // Auto-update nav selection highlight on scroll
+        window.addEventListener('scroll', () => {
+            const sections = ['sec-legal', 'sec-dev', 'sec-print', 'sec-retail', 'sec-analytics', 'sec-community'];
+            let current = '';
+            
+            sections.forEach(secId => {
+                const section = document.getElementById(secId);
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 60) {
+                    current = secId;
+                }
+            });
+
+            if (current) {
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('onclick').includes(current)) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
