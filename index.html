@@ -4,344 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voltan Games</title>
-    <style>
-        /* ==========================================================================
-           CSS VARIABLES & GLOBAL RESET
-           ========================================================================== */
-        :root {
-            --bg-color: #000000;
-            --primary-cyan: #00E5FF;
-            --secondary-grey: #444444;
-            --text-white: #ffffff;
-            --card-bg: #111111;
-            --font-main: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-white);
-            font-family: var(--font-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* ==========================================================================
-           TYPOGRAPHY & BASIC ELEMENTS
-           ========================================================================== */
-        h1, h2, h3, h4 {
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            text-align: center;
-            color: var(--primary-cyan);
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            color: var(--text-white);
-        }
-
-        p {
-            margin-bottom: 1rem;
-            color: #cccccc;
-        }
-
-        ul {
-            list-style-position: inside;
-            margin-bottom: 1.5rem;
-            color: #cccccc;
-        }
-
-        li {
-            margin-bottom: 0.5rem;
-        }
-
-        /* ==========================================================================
-           BUTTONS
-           ========================================================================== */
-        .btn {
-            display: inline-block;
-            background-color: transparent;
-            color: var(--primary-cyan);
-            border: 2px solid var(--primary-cyan);
-            padding: 10px 24px;
-            font-size: 1rem;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-            margin-top: 1rem;
-        }
-
-        .btn:hover {
-            background-color: var(--primary-cyan);
-            color: var(--bg-color);
-            box-shadow: 0 0 15px var(--primary-cyan);
-            transform: scale(1.05);
-        }
-
-        /* ==========================================================================
-           NAVIGATION (HAMBURGER & SIDEBAR)
-           ========================================================================== */
-        .hamburger {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.6);
-            border: 2px solid var(--primary-cyan);
-            color: var(--primary-cyan);
-            font-size: 1.5rem;
-            padding: 8px 12px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .hamburger:hover {
-            background: var(--primary-cyan);
-            color: var(--bg-color);
-            box-shadow: 0 0 10px var(--primary-cyan);
-        }
-
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: -300px;
-            width: 280px;
-            height: 100vh;
-            background-color: #0a0a0a;
-            border-right: 2px solid var(--primary-cyan);
-            z-index: 999;
-            padding-top: 80px;
-            transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.8);
-        }
-
-        .sidebar.active {
-            left: 0;
-        }
-
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .sidebar ul li a {
-            display: block;
-            padding: 15px 30px;
-            color: var(--text-white);
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            border-left: 4px solid transparent;
-        }
-
-        .sidebar ul li a:hover {
-            background-color: #1a1a1a;
-            color: var(--primary-cyan);
-            border-left: 4px solid var(--primary-cyan);
-            padding-left: 40px;
-        }
-
-        /* ==========================================================================
-           HERO HEADER
-           ========================================================================== */
-        .hero {
-            position: relative;
-            background-color: var(--primary-cyan);
-            min-height: 35vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 60px 20px 100px 20px;
-        }
-
-        .hero-title {
-            font-size: clamp(3rem, 6vw, 5rem);
-            font-weight: 900;
-            color: var(--text-white);
-            margin-bottom: 0.5rem;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .hero-title .vg-letter {
-            color: var(--secondary-grey);
-        }
-
-        .hero-slogan {
-            font-size: 1.2rem;
-            color: var(--secondary-grey);
-            font-weight: bold;
-            font-style: italic;
-        }
-
-        /* Wave SVG Divider */
-        .wave-divider {
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 100%;
-            height: auto;
-            line-height: 0;
-            pointer-events: none;
-        }
-
-        .wave-divider svg {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-
-        /* ==========================================================================
-           MAIN CONTENT SECTIONS & GRID LAYOUT
-           ========================================================================== */
-        section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        /* Cards */
-        .card {
-            background-color: var(--card-bg);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #222;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(0, 229, 255, 0.2);
-            border-color: #333;
-        }
-
-        .card-img-placeholder {
-            width: 100%;
-            height: 200px;
-            background-color: #222;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #555;
-            font-size: 0.9rem;
-            border-bottom: 2px solid var(--secondary-grey);
-        }
-
-        .card-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-bottom: 2px solid var(--secondary-grey);
-        }
-
-        .card-content {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card-content h3 {
-            margin-bottom: 0.5rem;
-        }
-
-        .card-content .btn {
-            margin-top: auto;
-        }
-
-        /* Team Members Custom Layout */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .team-member {
-            background: #151515;
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--primary-cyan);
-        }
-
-        .team-member h4 {
-            font-size: 1.3rem;
-            color: var(--text-white);
-            margin-bottom: 1rem;
-        }
-
-        /* ==========================================================================
-           FOOTER WATERMARK
-           ========================================================================== */
-        .footer-watermark {
-            position: fixed;
-            bottom: 10px;
-            right: 15px;
-            font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.3);
-            pointer-events: none;
-            z-index: 1000;
-        }
-
-        /* ==========================================================================
-           SCROLL ANIMATIONS (Fade-in)
-           ========================================================================== */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ==========================================================================
-           MEDIA QUERIES FOR RESPONSIVENESS
-           ========================================================================== */
-        @media (max-width: 768px) {
-            .hero {
-                padding-top: 80px;
-            }
-            h2 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -360,28 +25,50 @@
     <header id="home" class="hero">
         <div class="fade-in">
             <h1 class="hero-title">
-                <span class="vg-letter">V</span>oltan <span class="vg-letter">G</span>ames
+                <span class="vg-letter">V</span>oltan
+                <span class="vg-letter">G</span>ames
             </h1>
-            <p class="hero-slogan">«Creating Games, Designs & Ideas.»</p>
+
+            <p class="hero-slogan">
+                «Creating Games, Designs & Ideas.»
+            </p>
         </div>
-        
+
         <div class="wave-divider">
-            <svg viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#000000" fill-opacity="1" d="M0,160L48,170.7C96,181,192,203,288,197.3C384,192,480,160,576,144C672,128,768,128,864,149.3C960,171,1056,213,1152,208C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path fill="#000000" fill-opacity="1"
+                    d="M0,160L48,170.7C96,181,192,203,288,197.3C384,192,480,160,576,144C672,128,768,128,864,149.3C960,171,1056,213,1152,208C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                </path>
             </svg>
         </div>
     </header>
 
     <main>
+
         <section id="games" class="fade-in">
+
             <h2>Games</h2>
+
             <div class="grid-container">
+
                 <div class="card">
-                    <img src="MPMain.png" alt="Marble Playground Screenshot" class="card-img" onerror="this.outerHTML='<div class=\'card-img-placeholder\'>MPMain.png</div>'">
+
+                    <img src="MPMain.png"
+                         alt="Marble Playground Screenshot"
+                         class="card-img"
+                         onerror="this.outerHTML='<div class=\'card-img-placeholder\'>MPMain.png</div>'">
+
                     <div class="card-content">
+
                         <h3>Marble Playground</h3>
-                        <p>2D physics sandbox where creativity is the limit.</p>
+
+                        <p>
+                            2D physics sandbox where creativity is the limit.
+                        </p>
+
                         <p>Features include:</p>
+
                         <ul>
                             <li>Unlimited world size</li>
                             <li>Unlimited saves</li>
@@ -391,75 +78,151 @@
                             <li>Physics interactions</li>
                             <li>And much more.</li>
                         </ul>
-                        <a href="https://voltan-games.itch.io/marble-playground" target="_blank" class="btn">Get our game on itch.io</a>
+
+                        <a href="https://voltan-games.itch.io/marble-playground"
+                           target="_blank"
+                           class="btn">
+                            Get our game on itch.io
+                        </a>
+
                     </div>
                 </div>
 
                 <div class="card">
-                    <img src="VBMain.png" alt="Voltan Blob Screenshot" class="card-img" onerror="this.outerHTML='<div class=\'card-img-placeholder\'>VBMain.png</div>'">
+
+                    <img src="VBMain.png"
+                         alt="Voltan Blob Screenshot"
+                         class="card-img"
+                         onerror="this.outerHTML='<div class=\'card-img-placeholder\'>VBMain.png</div>'">
+
                     <div class="card-content">
+
                         <h3>Voltan Blob</h3>
-                        <p>A 2D roguelike survival game where every run is different.</p>
-                        <a href="https://voltan-games.itch.io/voltan-blob" target="_blank" class="btn">Get our game on itch.io</a>
+
+                        <p>
+                            A 2D roguelike survival game where every run is different.
+                        </p>
+
+                        <a href="https://voltan-games.itch.io/voltan-blob"
+                           target="_blank"
+                           class="btn">
+                            Get our game on itch.io
+                        </a>
+
                     </div>
                 </div>
+
             </div>
+
         </section>
 
-        <hr style="border: 0; height: 1px; background: #222; max-width: 800px; margin: 0 auto;">
+        <hr style="border:0;height:1px;background:#222;max-width:800px;margin:0 auto;">
 
         <section id="3d-printing" class="fade-in">
-            <h2>3D Printing</h2>
-            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-                <h3>Small to medium sized custom parts, miniatures, prototypes and unique creations.</h3>
-                <p>Voltan Games also designs and manufactures custom 3D printed products. From practical household solutions to entirely bespoke artistic models, we bring digital concepts into the physical world with precision and care.</p>
-                <a href="https://makerworld.com/@Voltan_Games" target="_blank" class="btn" style="margin-top: 1.5rem;">Visit our MakerWorld page</a>
-            </div>
-        </section>
 
-        <hr style="border: 0; height: 1px; background: #222; max-width: 800px; margin: 0 auto;">
+            <h2>3D Printing</h2>
+
+            <div style="text-align:center;max-width:800px;margin:0 auto;">
+
+                <h3>
+                    Small to medium sized custom parts, miniatures,
+                    prototypes and unique creations.
+                </h3>
+
+                <p>
+                    Voltan Games also designs and manufactures custom
+                    3D printed products. From practical household
+                    solutions to entirely bespoke artistic models,
+                    we bring digital concepts into the physical world
+                    with precision and care.
+                </p>
+
+                <a href="https://makerworld.com/@Voltan_Games"
+                   target="_blank"
+                   class="btn"
+                   style="margin-top:1.5rem;">
+                    Visit our MakerWorld page
+                </a>
+
+            </div>
+
+        </section>
+                <hr style="border:0;height:1px;background:#222;max-width:800px;margin:0 auto;">
 
         <section id="merch" class="fade-in">
+
             <h2>Merch</h2>
-            <div class="grid-container" style="justify-content: center; display: flex;">
-                <div class="card" style="max-width: 500px; width: 100%; text-align: center;">
+
+            <div class="grid-container" style="justify-content:center;display:flex;">
+
+                <div class="card" style="max-width:500px;width:100%;text-align:center;">
+
                     <div class="card-content">
+
                         <h3>Merchandise coming soon.</h3>
-                        <p style="margin-top: 1rem;">Future products may include:</p>
-                        <ul style="text-align: left; display: inline-block;">
+
+                        <p style="margin-top:1rem;">
+                            Future products may include:
+                        </p>
+
+                        <ul style="text-align:left;display:inline-block;">
                             <li>Stickers</li>
                             <li>Keychains</li>
                             <li>3D printed accessories</li>
                             <li>Game merchandise</li>
                         </ul>
+
                     </div>
+
                 </div>
+
             </div>
+
         </section>
 
-        <hr style="border: 0; height: 1px; background: #222; max-width: 800px; margin: 0 auto;">
+        <hr style="border:0;height:1px;background:#222;max-width:800px;margin:0 auto;">
 
         <section id="about-us" class="fade-in">
+
             <h2>About Us</h2>
-            <div style="max-width: 900px; margin: 0 auto;">
-                <p>Voltan Games (VG) is a small independent brand created to bring all of our creative projects together under one name.</p>
-                <p>Founded in 2023 by Faheem and Jesse, Voltan Games began as a passion project during the start of our game development journey.</p>
-                
+
+            <div style="max-width:900px;margin:0 auto;">
+
+                <p>
+                    Voltan Games (VG) is a small independent brand
+                    created to bring all of our creative projects
+                    together under one name.
+                </p>
+
+                <p>
+                    Founded in 2023 by Faheem and Jesse,
+                    Voltan Games began as a passion project during
+                    the start of our game development journey.
+                </p>
+
                 <div class="team-grid">
+
                     <div class="team-member fade-in">
+
                         <h4>Jesse</h4>
+
                         <p>Designer responsible for:</p>
+
                         <ul>
                             <li>2D Pixel Art</li>
                             <li>Play Testing</li>
                             <li>Game Direction</li>
                             <li>UI & Art Style</li>
                         </ul>
+
                     </div>
-                    
+
                     <div class="team-member fade-in">
+
                         <h4>Faheem</h4>
+
                         <p>Responsible for:</p>
+
                         <ul>
                             <li>Programming</li>
                             <li>Project Management</li>
@@ -467,76 +230,51 @@
                             <li>Performance Optimization</li>
                             <li>Publishing Games</li>
                         </ul>
+
                     </div>
+
                 </div>
 
-                <div class="fade-in" style="background: #111; padding: 2rem; border-radius: 12px; border: 1px solid #222;">
-                    <h3 style="color: var(--primary-cyan); text-align: center; margin-bottom: 1.5rem;">Our Future Goals</h3>
-                    <p>Beginning in 2026, our goal is to build a complete professional website showcasing everything we have created.</p>
-                    <p>We aim to expand our collection of games while also offering high-quality 3D printed products ranging from useful everyday items to completely custom creations.</p>
-                    <p>Our long-term vision is to build a recognizable and trusted brand known for creativity, quality, and innovation.</p>
+                <div class="fade-in"
+                     style="background:#111;padding:2rem;border-radius:12px;border:1px solid #222;">
+
+                    <h3 style="color:var(--primary-cyan);text-align:center;margin-bottom:1.5rem;">
+                        Our Future Goals
+                    </h3>
+
+                    <p>
+                        Beginning in 2026, our goal is to build
+                        a complete professional website showcasing
+                        everything we have created.
+                    </p>
+
+                    <p>
+                        We aim to expand our collection of games
+                        while also offering high-quality 3D printed
+                        products ranging from useful everyday items
+                        to completely custom creations.
+                    </p>
+
+                    <p>
+                        Our long-term vision is to build a
+                        recognizable and trusted brand known for
+                        creativity, quality, and innovation.
+                    </p>
+
                 </div>
+
             </div>
+
         </section>
+
     </main>
 
     <div class="footer-watermark">
         «AI template design — final version will change soon.»
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // 1. Hamburger Menu Logic
-            const hamburgerBtn = document.getElementById('hamburger-btn');
-            const sidebar = document.getElementById('sidebar');
-            const navLinks = sidebar.querySelectorAll('a');
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
 
-            // Toggle sidebar open/close
-            hamburgerBtn.addEventListener('click', (e) => {
-                sidebar.classList.toggle('active');
-                e.stopPropagation(); // Prevent document click from immediately closing it
-            });
-
-            // Close sidebar when clicking outside of it
-            document.addEventListener('click', (e) => {
-                if (sidebar.classList.contains('active') && !sidebar.contains(e.target) && e.target !== hamburgerBtn) {
-                    sidebar.classList.remove('active');
-                }
-            });
-
-            // Auto-close sidebar when a navigation link is clicked
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    sidebar.classList.remove('active');
-                });
-            });
-
-
-            // 2. Scroll Fade-in Animation Logic using Intersection Observer
-            const fadeElements = document.querySelectorAll('.fade-in');
-
-            const observerOptions = {
-                root: null, // Viewport
-                rootMargin: '0px',
-                threshold: 0.15 // Trigger when 15% of the element is visible
-            };
-
-            const fadeObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        // Optional: Unobserve after fading in if you only want it to happen once
-                        // observer.unobserve(entry.target); 
-                    }
-                });
-            }, observerOptions);
-
-            // Attach observer to all elements with .fade-in class
-            fadeElements.forEach(el => {
-                fadeObserver.observe(el);
-            });
-        });
-    </script>
 </body>
 </html>
