@@ -1,0 +1,355 @@
+/* ==========================================================================
+   CSS VARIABLES & GLOBAL RESET
+   ========================================================================== */
+
+:root {
+    --bg-color: #000000;
+    --primary-cyan: #00E5FF;
+    --secondary-grey: #444444;
+    --text-white: #ffffff;
+    --card-bg: #111111;
+    --font-main: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-white);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4 {
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--primary-cyan);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--text-white);
+}
+
+p {
+    margin-bottom: 1rem;
+    color: #cccccc;
+}
+
+ul {
+    list-style-position: inside;
+    margin-bottom: 1.5rem;
+    color: #cccccc;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+
+.btn {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--primary-cyan);
+    border: 2px solid var(--primary-cyan);
+    padding: 10px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    background-color: var(--primary-cyan);
+    color: var(--bg-color);
+    box-shadow: 0 0 15px var(--primary-cyan);
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
+
+.hamburger {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid var(--primary-cyan);
+    color: var(--primary-cyan);
+    font-size: 1.5rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hamburger:hover {
+    background: var(--primary-cyan);
+    color: var(--bg-color);
+    box-shadow: 0 0 10px var(--primary-cyan);
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 280px;
+    height: 100vh;
+    background-color: #0a0a0a;
+    border-right: 2px solid var(--primary-cyan);
+    z-index: 999;
+    padding-top: 80px;
+    transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.8);
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 15px 30px;
+    color: var(--text-white);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.sidebar ul li a:hover {
+    background-color: #1a1a1a;
+    color: var(--primary-cyan);
+    border-left: 4px solid var(--primary-cyan);
+    padding-left: 40px;
+}
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+
+.hero {
+    position: relative;
+    background-color: var(--primary-cyan);
+    min-height: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px 100px;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 900;
+    color: var(--text-white);
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero-title .vg-letter {
+    color: var(--secondary-grey);
+}
+
+.hero-slogan {
+    font-size: 1.2rem;
+    color: var(--secondary-grey);
+    font-weight: bold;
+    font-style: italic;
+}
+
+.wave-divider {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+    pointer-events: none;
+}
+
+.wave-divider svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+/* ==========================================================================
+   MAIN CONTENT SECTIONS
+   ========================================================================== */
+
+section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+/* ==========================================================================
+   CARDS
+   ========================================================================== */
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #222;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 229, 255, 0.2);
+    border-color: #333;
+}
+
+.card-img-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    font-size: 0.9rem;
+    border-bottom: 2px solid var(--secondary-grey);
+}
+
+.card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid var(--secondary-grey);
+}
+
+.card-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h3 {
+    margin-bottom: 0.5rem;
+}
+
+.card-content .btn {
+    margin-top: auto;
+}
+
+/* ==========================================================================
+   TEAM
+   ========================================================================== */
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.team-member {
+    background: #151515;
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-cyan);
+}
+
+.team-member h4 {
+    font-size: 1.3rem;
+    color: var(--text-white);
+    margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.footer-watermark {
+    position: fixed;
+    bottom: 10px;
+    right: 15px;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* ==========================================================================
+   FADE ANIMATIONS
+   ========================================================================== */
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out,
+                transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+    .hero {
+        padding-top: 80px;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+}
