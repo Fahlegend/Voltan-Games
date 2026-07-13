@@ -1,0 +1,19 @@
+Think deep and add each of these features. Dont break the html / css / javascript
+
+Add a better Dynamic section for Games
+For the button design (keep that)
+Get data from the GameData.json file
+Each game has its own data for what you got to use from the [] data.
+
+{
+[GameID:"ID"; GameTitle:"Name"; GameIMG:"name.png"; GameDescriptionShort:"short"; ItchIOLink:"link";]
+}
+
+
+Add a new section called Socials (above the about us section)
+
+Also retrieve data from a socials.json file
+
+{
+[SocialID:"id"; SocialTitle:"title"; SocialDescription:"description"; SocialPlatform:"youtube" socialLink:"linkto";]
+}
