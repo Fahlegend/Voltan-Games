@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voltan Games</title>
 
-    <!-- External CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,6 +17,7 @@
             <li><a href="#games">Games</a></li>
             <li><a href="#3d-printing">3D Printing</a></li>
             <li><a href="#merch">Merch</a></li>
+            <li><a href="#socials">Socials</a></li>
             <li><a href="#about-us">About Us</a></li>
         </ul>
     </nav>
@@ -47,73 +47,9 @@
     <main>
 
         <section id="games" class="fade-in">
-
             <h2>Games</h2>
-
-            <div class="grid-container">
-
-                <div class="card">
-
-                    <img src="MPMain.png"
-                         alt="Marble Playground Screenshot"
-                         class="card-img"
-                         onerror="this.outerHTML='<div class=\'card-img-placeholder\'>MPMain.png</div>'">
-
-                    <div class="card-content">
-
-                        <h3>Marble Playground</h3>
-
-                        <p>
-                            2D physics sandbox where creativity is the limit.
-                        </p>
-
-                        <p>Features include:</p>
-
-                        <ul>
-                            <li>Unlimited world size</li>
-                            <li>Unlimited saves</li>
-                            <li>Over 100 unique blocks</li>
-                            <li>Race building</li>
-                            <li>Creative construction</li>
-                            <li>Physics interactions</li>
-                            <li>And much more.</li>
-                        </ul>
-
-                        <a href="https://voltan-games.itch.io/marble-playground"
-                           target="_blank"
-                           class="btn">
-                            Get our game on itch.io
-                        </a>
-
-                    </div>
+            <div id="games-container" class="grid-container">
                 </div>
-
-                <div class="card">
-
-                    <img src="VBMain.png"
-                         alt="Voltan Blob Screenshot"
-                         class="card-img"
-                         onerror="this.outerHTML='<div class=\'card-img-placeholder\'>VBMain.png</div>'">
-
-                    <div class="card-content">
-
-                        <h3>Voltan Blob</h3>
-
-                        <p>
-                            A 2D roguelike survival game where every run is different.
-                        </p>
-
-                        <a href="https://voltan-games.itch.io/voltan-blob"
-                           target="_blank"
-                           class="btn">
-                            Get our game on itch.io
-                        </a>
-
-                    </div>
-                </div>
-
-            </div>
-
         </section>
 
         <hr style="border:0;height:1px;background:#222;max-width:800px;margin:0 auto;">
@@ -147,7 +83,8 @@
             </div>
 
         </section>
-                <hr style="border:0;height:1px;background:#222;max-width:800px;margin:0 auto;">
+        
+        <hr style="border:0;height:1px;background:#222;max-width:800px;margin:0 auto;">
 
         <section id="merch" class="fade-in">
 
@@ -178,6 +115,14 @@
 
             </div>
 
+        </section>
+
+        <hr style="border:0;height:1px;background:#222;max-width:800px;margin:0 auto;">
+
+        <section id="socials" class="fade-in">
+            <h2>Socials</h2>
+            <div id="socials-container" class="grid-container">
+                </div>
         </section>
 
         <hr style="border:0;height:1px;background:#222;max-width:800px;margin:0 auto;">
@@ -273,7 +218,6 @@
         «AI template design — final version will change soon.»
     </div>
 
-    <!-- External JavaScript -->
     <script src="script.js"></script>
 
 </body>
