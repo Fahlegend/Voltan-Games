@@ -1,0 +1,23 @@
+[
+  {
+    "SocialID": "yt-channel",
+    "SocialTitle": "Voltan Games Devlogs (Youtube)",
+    "SocialDescription": "Check out behind-the-scenes action and updates on our game development journey.",
+    "SocialPlatform": "youtube",
+    "socialLink": "www.youtube.com/@VoltanGames"
+  },
+   {
+    "SocialID": "tt-channel",
+    "SocialTitle": "Voltan Games Devlogs (Tiktok)",
+    "SocialDescription": "Check out behind-the-scenes action and updates on our game development journey.",
+    "SocialPlatform": "Tiktok",
+    "socialLink": "https://www.tiktok.com/@voltan_games"
+  },
+  {
+    "SocialID": "tt-channel2",
+    "SocialTitle": "Fah The Legend General (Tiktok)",
+    "SocialDescription": "Check out Fah content for Gaming, Coding, teasers, and lot more.",
+    "SocialPlatform": "Tiktok",
+    "socialLink": "https://www.tiktok.com/@Fah3479thelegend"
+  }
+]
