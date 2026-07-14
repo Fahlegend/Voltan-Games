@@ -1,19 +1,32 @@
-Think deep and add each of these features. Dont break the html / css / javascript
+Think deep and add each of these features. Dont break my exsisting code or data, dont change any info not needed to be changed. Dont break said javascript / css / html only add what is needed and what we want.
 
-Add a better Dynamic section for Games
-For the button design (keep that)
-Get data from the GameData.json file
-Each game has its own data for what you got to use from the [] data.
+1. For the games section instead of using the button to take the person to said website > open a new window in "_self" that opens a dynamic html page. 
+
+E.g marble playground button we click it opens the DynamicGame.html (we give it the data needed) 
+
+2. Inside this page copy over the heading / wave design from the original main homepge. Add that for the top. Add in the nav back (to return back to the indexpage / sections)
+
+3. Inside said dynamic page read data from the DynamicGameData.json and implement it into this section make it like a cool display for the game showing its images / stuff
+
+Inside long descriotion if there is a "${}" get the filepath relative to this file to show said image / gif 
+
+E.g longdescription:"New cool feature logic ${images/games/mp/logic.gif}"; 
+
+Also for the main page from the gamedata.json also use relative file path for images. 
 
 {
-[GameID:"ID"; GameTitle:"Name"; GameIMG:"name.png"; GameDescriptionShort:"short"; ItchIOLink:"link";]
+[GameID:"ID"; GameTitle:"name" MainImg:"(location/name)"; platformID:"nameplatform"; platformlink:"linktosaidplatform" shortDescription:"short"; longdescription:"long"; ]
 }
 
 
-Add a new section called Socials (above the about us section)
 
-Also retrieve data from a socials.json file
+How do we want it to look. 
 
-{
-[SocialID:"id"; SocialTitle:"title"; SocialDescription:"description"; SocialPlatform:"youtube" socialLink:"linkto";]
-}
+Heading (the one from main menu company name.
+Below Game Name (big)
+Below (big main img) 
+Below (platforms avail, where u get game)
+Below (button link to said patform)
+Below (short description)
+(hr line , cyan / a bit glow)
+Below (long description with said images to display from said file path)
