@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voltan Games - Game Details</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific custom styles for the Dynamic details layouts */
+        .details-container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .details-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--text-white);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .details-main-img {
+            width: 100%;
+            max-height: 480px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 2px solid var(--secondary-grey);
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+        }
+
+        .details-platform-label {
+            font-size: 1.1rem;
+            color: #888888;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .details-platform-name {
+            font-size: 1.6rem;
+            color: var(--primary-cyan);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .details-short-desc {
+            font-size: 1.2rem;
+            color: #dddddd;
+            margin: 2rem auto;
+            line-height: 1.8;
+            max-width: 750px;
+        }
+
+        .details-divider {
+            border: 0;
+            height: 1px;
+            background: var(--primary-cyan);
+            box-shadow: 0 0 8px var(--primary-cyan);
+            max-width: 100%;
+            margin: 2.5rem 0;
+        }
+
+        .details-long-desc {
+            text-align: left;
+            font-size: 1.1rem;
+            color: #cccccc;
+            line-height: 1.8;
+        }
+
+        /* Dynamic parsed media files */
+        .parsed-media {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 1.5rem auto;
+            border-radius: 8px;
+            border: 1px solid #333;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+
+        .error-message {
+            color: var(--primary-cyan);
+            font-size: 1.5rem;
+            margin: 100px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="hamburger" id="hamburger-btn" aria-label="Toggle Navigation">☰</button>
+
+    <nav class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#games">Games</a></li>
+            <li><a href="index.html#3d-printing">3D Printing</a></li>
+            <li><a href="index.html#merch">Merch</a></li>
+            <li><a href="index.html#socials">Socials</a></li>
+            <li><a href="index.html#about-us">About Us</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="fade-in visible" style="opacity: 1; transform: translateY(0);">
+            <h1 class="hero-title">
+                <span class="vg-letter">V</span>oltan
+                <span class="vg-letter">G</span>ames
+            </h1>
+            <p class="hero-slogan">
+                «Creating Games, Designs & Ideas.»
+            </p>
+        </div>
+
+        <div class="wave-divider">
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#000000" fill-opacity="1"
+                    d="M0,160L48,170.7C96,181,192,203,288,197.3C384,192,480,160,576,144C672,128,768,128,864,149.3C960,171,1056,213,1152,208C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                </path>
+            </svg>
+        </div>
+    </header>
+
+    <main>
+        <section class="fade-in visible" style="opacity: 1; transform: translateY(0);">
+            <div class="details-container" id="details-content-wrapper">
+                <p>Loading game info...</p>
+            </div>
+        </section>
+    </main>
+
+    <div class="footer-watermark">
+        «AI template design — final version will change soon.»
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Re-bind sidebar triggers locally for navigation compatibility
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            const sidebar = document.getElementById('sidebar');
+            const navLinks = sidebar.querySelectorAll('a');
+
+            hamburgerBtn.addEventListener('click', (e) => {
+                sidebar.classList.toggle('active');
+                e.stopPropagation();
+            });
+
+            document.addEventListener('click', (e) => {
+                if (sidebar.classList.contains('active') && !sidebar.contains(e.target) && e.target !== hamburgerBtn) {
+                    sidebar.classList.remove('active');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    sidebar.classList.remove('active');
+                });
+            });
+
+            // Parse URL target id query parameter
+            const params = new URLSearchParams(window.location.search);
+            const gameId = params.get('id');
+
+            if (!gameId) {
+                document.getElementById('details-content-wrapper').innerHTML = `
+                    <div class="error-message">
+                        <p>No Game Identifier Specified.</p>
+                        <a href="index.html#games" class="btn">Return to Homepage</a>
+                    </div>
+                `;
+                return;
+            }
+
+            // Helper function to handle both array and legacy string inputs
+            function renderLongDescription(blocks) {
+                if (!blocks) return '';
+                
+                // Fallback for retrofitted single-string configurations 
+                if (typeof blocks === 'string') {
+                    // Supporting the old dynamic media replacement logic for fallback entries
+                    const mediaRegex = /\$\{([^}]+)\}/g;
+                    return `<p>${blocks.replace(mediaRegex, (match, filepath) => {
+                        return `<img src="${filepath}" alt="Gameplay Media Preview" class="parsed-media" onerror="this.style.display='none'">`;
+                    })}</p>`;
+                }
+
+                return blocks.map(block => {
+                    switch (block.type) {
+                        case 'paragraph':
+                            return `<p>${block.content}</p>`;
+                            
+                        case 'header':
+                            return `<h3>${block.content}</h3>`;
+                            
+                        case 'image':
+                            return `
+                                <div class="description-media">
+                                    <img src="${block.src}" alt="${block.alt || 'Game Media'}" class="desc-img parsed-media" onerror="this.style.display='none'">
+                                </div>
+                            `;
+                            
+                        case 'list':
+                            const listItems = block.items.map(item => `<li>${item}</li>`).join('');
+                            return `<ul>${listItems}</ul>`;
+                            
+                        case 'divider':
+                            return `<hr class="desc-divider">`;
+                            
+                        default:
+                            return '';
+                    }
+                }).join('\n');
+            }
+
+            // Fetch dynamic game definitions
+            fetch('DynamicGameData.json')
+                .then(response => {
+                    if (!response.ok) throw new Error('Dynamic game file could not be read.');
+                    return response.json();
+                })
+                .then(data => {
+                    // Match object on GameID parameter
+                    const game = data.find(item => String(item.GameID) === String(gameId));
+
+                    if (!game) {
+                        document.getElementById('details-content-wrapper').innerHTML = `
+                            <div class="error-message">
+                                <p>Sorry! Game Details Not Found.</p>
+                                <a href="index.html#games" class="btn">Return to Homepage</a>
+                            </div>
+                        `;
+                        return;
+                    }
+
+                    // Render dynamic layout view structure
+                    document.getElementById('details-content-wrapper').innerHTML = `
+                        <h1 class="details-title">${game.GameTitle}</h1>
+                        
+                        <img src="${game.MainImg}" alt="${game.GameTitle}" class="details-main-img" onerror="this.style.display='none'">
+                        
+                        <div class="details-platform-label">Platforms Available</div>
+                        <div class="details-platform-name">${game.platformID}</div>
+                        
+                        <a href="${game.platformlink}" target="_blank" class="btn">
+                            Get ${game.GameTitle} on ${game.platformID}
+                        </a>
+                        
+                        <p class="details-short-desc">${game.shortDescription}</p>
+                        
+                        <hr class="details-divider">
+                        
+                        <div class="details-long-desc">
+                            ${renderLongDescription(game.longdescription)}
+                        </div>
+
+                        <div style="margin-top: 4rem;">
+                            <a href="index.html#games" class="btn">← Back to Games</a>
+                        </div>
+                    `;
+                })
+                .catch(err => {
+                    console.error(err);
+                    document.getElementById('details-content-wrapper').innerHTML = `
+                        <div class="error-message">
+                            <p>Unable to load game data at this time.</p>
+                            <a href="index.html#games" class="btn">Return to Homepage</a>
+                        </div>
+                    `;
+                });
+        });
+    </script>
+</body>
+</html>

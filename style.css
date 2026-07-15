@@ -212,6 +212,7 @@ li {
     width: 100%;
     height: auto;
 }
+
 /* ==========================================================================
    MAIN CONTENT SECTIONS
    ========================================================================== */
@@ -336,6 +337,43 @@ section {
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* ==========================================================================
+   DYNAMIC DESCRIPTION LAYOUT
+   ========================================================================== */
+
+.description-media {
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.desc-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #222;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+#game-details-content p {
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+#game-details-content h3 {
+    color: var(--primary-cyan);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.4rem;
+}
+
+.desc-divider {
+    border: 0;
+    height: 1px;
+    background: #222;
+    margin: 2rem 0;
 }
 
 /* ==========================================================================

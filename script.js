@@ -57,18 +57,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 const card = document.createElement('div');
                 card.className = 'card';
 
+                const gameId = game.GameID || encodeURIComponent(game.GameTitle);
+                
+                // Get the relative image path directly from the JSON
+                const imgPath = game.GameIMG; 
+
                 card.innerHTML = `
-                    <img src="${game.GameIMG}"
+                    <img src="${imgPath}"
                          alt="${game.GameTitle} Screenshot"
                          class="card-img"
-                         onerror="this.outerHTML='<div class=\\'card-img-placeholder\\'>${game.GameIMG}</div>'">
+                         onerror="this.outerHTML='<div class=\\'card-img-placeholder\\'>${game.GameTitle}</div>'">
                     <div class="card-content">
                         <h3>${game.GameTitle}</h3>
                         <p>${game.GameDescriptionShort}</p>
-                        <a href="${game.ItchIOLink}"
-                           target="_blank"
+                        <a href="DynamicGame.html?id=${gameId}"
+                           target="_self"
                            class="btn">
-                            Get our game on itch.io
+                             View Game Details
                         </a>
                     </div>
                 `;
@@ -148,3 +153,73 @@ document.addEventListener('DOMContentLoaded', () => {
     refreshFadeObserver();
 
 });
+
+/**
+ * Converts a structured JSON array of blocks into clean HTML.
+ * Use this in your dynamic details script: 
+ * detailsElement.innerHTML = renderLongDescription(game.longdescription);
+ */
+function renderLongDescription(blocks) {
+    if (!blocks) return '';
+    
+    // Fallback if the longdescription is still a simple string in some JSON entries
+    if (typeof blocks === 'string') {
+        return `<p>${blocks}</p>`;
+    }
+
+    return blocks.map(block => {
+        switch (block.type) {
+            case 'paragraph':
+                return `<p>${block.content}</p>`;
+                
+            case 'header':
+                return `<h3>${block.content}</h3>`;
+                
+            case 'image':
+                // Safe check if file is a video format
+                const isVideo = block.src.match(/\.(mp4|webm|ogg|mov)$/i);
+                
+                if (isVideo) {
+                    // Pull attributes dynamically from JSON properties, fallback to sensible defaults
+                    const hasControls = block.controls !== false ? 'controls' : '';
+                    const isAutoplay = block.autoplay === true ? 'autoplay' : '';
+                    const isMuted = block.muted === true ? 'muted' : '';
+                    const isLooping = block.loop === true ? 'loop' : '';
+
+                    return `
+                        <div class="description-media">
+                            <video src="${block.src}" 
+                                   class="desc-img parsed-media" 
+                                   ${hasControls} 
+                                   ${isAutoplay} 
+                                   ${isMuted} 
+                                   ${isLooping} 
+                                   playsinline
+                                   style="width: 100%; max-height: 500px; display: block; border-radius: 8px;">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    `;
+                } else {
+                    return `
+                        <div class="description-media">
+                            <img src="${block.src}" 
+                                 alt="${block.alt || 'Game Media'}" 
+                                 class="desc-img parsed-media" 
+                                 onerror="this.style.display='none'">
+                        </div>
+                    `;
+                }
+                
+            case 'list':
+                const listItems = block.items.map(item => `<li>${item}</li>`).join('');
+                return `<ul>${listItems}</ul>`;
+                
+            case 'divider':
+                return `<hr class="desc-divider">`;
+                
+            default:
+                return '';
+        }
+    }).join('\n');
+}

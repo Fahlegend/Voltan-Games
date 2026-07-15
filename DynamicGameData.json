@@ -1,0 +1,80 @@
+[
+  {
+    "GameID": "marble-playground",
+    "GameTitle": "Marble Playground",
+    "MainImg": "images/games/mp/Main.png",
+    "platformID": "Itch.io",
+    "platformlink": "https://voltan-games.itch.io/marble-playground",
+    "shortDescription": "A physics-based playground sandbox where you can build tracks and use 100+ blocks in big space worlds.",
+    "longdescription": [
+      {
+        "type": "paragraph",
+        "content": "Welcome to Marble Playground! This is a game about designing and building what ever you desire, weather it is racing, logic, color sorting or much more."
+      },
+      {
+        "type": "header",
+        "content": "⏺ Logic Section"
+      },
+      {
+        "type": "paragraph",
+        "content": "Inside our new logic update, you can wire up switches and make cool types of circuits."
+      },
+      {
+        "type": "image",
+        "src": "images/games/mp/MPlogic.gif",
+        "alt": "Wiring up switches and controlling pathways"
+      },
+      {
+        "type": "paragraph",
+        "content": "Logic can almost effect all blocks by their scripts > setting active/deactive, passthrough/blocked, delay, timer, all logic gates. Currently only marbles can effect logic trigger blocks."
+      },
+      {
+        "type": "header",
+        "content": "⏺ Racing Section"
+      },
+      {
+        "type": "paragraph",
+        "content": "Racing marbles can be done in different ways. 1 way to do this is to set up checkpoint blocks with ids 1-max amount. Marbles have to passthrough each checkpoint in the right order."
+      },
+      {
+        "type": "paragraph",
+        "content": "If a marble skips a checkpoint ID and finishes the race it is still under DNF rules. If you want a section to repeat, you must Change the checkpoint options to use ResetID > (IDNumber), this can help different sections repeat and still continue to update who the leader is."
+      },
+      {
+        "type": "image",
+        "src": "images/games/mp/MPRace.gif",
+        "alt": "Logic circuit showcase"
+      },
+      {
+        "type": "paragraph",
+        "content": "This is a examle of how the checkpoint block works, the marbles update once the next checkpoint is the finish > During a timed race the game gets the last CheckpointID as the finish ID (old UI system)."
+      },
+      {
+        "type": "paragraph",
+        "content": "This next one is a example of the New Race UI, Shows the top 3 in Gold, Silver, Bronze, Rest positions use a single color."
+      },
+      {
+        "type": "image",
+        "src": "images/games/mp/MPNewLeaderboard.gif",
+        "alt": "Logic circuit showcase"
+      },
+      {
+        "type": "header",
+        "content": "⏺ Grouping Objects"
+      },
+      {
+        "type": "paragraph",
+        "content": "Using the Grouping UI, you can create a new group and select objects to add to such a group. This allows you to quick select this group mvoe it around, copy and paste multiple objects at once."
+      },
+      {
+        "type": "paragraph",
+        "content": "In the 'V6 Update' Copying and pasting of logic groups works. the pasted blocks get new IDs and relink with the new IDs."
+      },
+      {
+        "type": "image",
+        "src": "images/games/mp/MPGroup.gif",
+        "alt": "Logic circuit showcase"
+      }
+    ]
+  }
+]

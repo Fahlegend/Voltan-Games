@@ -2,14 +2,14 @@
   {
     "GameID": "marble-playground",
     "GameTitle": "Marble Playground",
-    "GameIMG": "MPMain.png",
+    "GameIMG": "images/games/mp/Main.png",
     "GameDescriptionShort": "2D physics sandbox where creativity is the limit.",
     "ItchIOLink": "https://voltan-games.itch.io/marble-playground"
   },
   {
     "GameID": "voltan-blob",
     "GameTitle": "Voltan Blob",
-    "GameIMG": "VBMain.png",
+    "GameIMG": "images/games/vb/Main.png",
     "GameDescriptionShort": "A 2D roguelike survival game where every run is different.",
     "ItchIOLink": "https://voltan-games.itch.io/voltan-blob"
   },
