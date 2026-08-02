@@ -76,5 +76,205 @@
         "alt": "Logic circuit showcase"
       }
     ]
+  },
+  
+  {
+    "GameID": "voltan-blob",
+    "GameTitle": "Voltan Blob",
+    "MainImg": "images/games/vb/Main.png",
+    "platformID": "Itch.io",
+    "platformlink": "https://voltan-games.itch.io/voltan-blob",
+    "shortDescription": "A 2D roguelike survival game where every run is different.",
+    "longdescription": [
+      {
+        "type": "paragraph",
+        "content": "Voltan Blob was made for a game jam in 5 days called 'Bigmode Game Jam 2025'. (currently still in development, not canceled)."
+      },
+      {
+        "type": "paragraph",
+        "content": "Voltan Blob is a 2D roguelike survival game. As the player 'Blob' you can choose which weapons you start of with. As you play you kill enemies and collect gems to level up. In each level up menu, you can pick upgrades or acquire new weapons and get better as you survive. Inspiration comes from 'Vampire Survivors' for the gameplay/art style. "
+      },
+      {
+        "type": "header",
+        "content": "⏺ Gem Information"
+      },
+      {
+        "type": "paragraph",
+        "content": "Gems are dropped on enemy kill. Rarity goes in order from (green > blue > red. Red gives the most amount of XP points per level. )"
+      },
+      {
+        "type": "image",
+        "src": "images/games/vb/Main.png",
+        "alt": "Gem"
+      },
+      {
+        "type": "paragraph",
+        "content": "Gems work like this > for each XP level the player is, a bonus is given to the gem XP amount. Green gems give 1-5XP tokens, blue gives 5-10XP tokens, Red gives 15-20XP tokens. Bonus is around 1-5% per level (this is a temp bonus), the Base bonus is 5-6% and increases by 1-2% per 3 levels."
+      },
+      {
+        "type": "header",
+        "content": "⏺ Coin Information"
+      },
+      {
+        "type": "paragraph",
+        "content": "Coins are also dropped on enemy kill. Coins are given a random drop amount of 1-5 + XP level as > %."
+      },
+      {
+        "type": "paragraph",
+        "content": "Rain events during gameplay is 10% to get, rain always 2x the coin drop amount and bonus % per level, make it worth it during such events."
+      },
+      {
+        "type": "image",
+        "src": "images/games/vb/Main.png",
+        "alt": "Rain"
+      }
+    ]
+  },
+
+  {
+    "GameID": "voltan-trading",
+    "GameTitle": "Voltan Trading",
+    "MainImg": "images/games/vt/Main.png",
+    "platformID": "Itch.io",
+    "platformlink": "https://voltan-games.itch.io/voltan-trading",
+    "shortDescription": "Voltan Trading is a 2D statergic game, where you buy and sell stock in companies to get rich. ",
+    "longdescription": [
+      {
+        "type": "header",
+        "content": "⏺ Development Status"
+      },
+      {
+        "type": "paragraph",
+        "content": "The development for the game has been canceled due to lack of skills for such massive systems and got to complex."
+      },
+      {
+        "type": "image",
+        "src": "images/games/vb/Main.png",
+        "alt": "Rain"
+      }
+    ]
+  },
+
+  {
+    "GameID": "voltan-store",
+    "GameTitle": "Voltan Store",
+    "MainImg": "VSMain.png",
+    "platformID": "Itch.io",
+    "platformlink": "https://voltan-games.itch.io/3d-simulation-vg-prototype",
+    "shortDescription": "A 3D Store Management Simulator with 2D Pixel art style customers/products.",
+    "longdescription": [
+      {
+        "type": "header",
+        "content": "⏺ Development Status"
+      },
+      {
+        "type": "paragraph",
+        "content": "Planned to be worked on future, current status prototype."
+      },
+      {
+        "type": "image",
+        "src": "images/games/vb/Main.png",
+        "alt": "Rain"
+      }
+    ]
+  },
+
+
+  {
+    "GameID": "voltan-honeyfarm",
+    "GameTitle": "VG Honey Farming",
+    "MainImg": "VGHFMain.png",
+    "platformID": "Itch.io",
+    "platformlink": "https://voltan-games.itch.io/bee-farming",
+    "shortDescription": "(Ai) created standalone html tycoon game, where u own a bee farm.",
+    "longdescription": [
+      {
+        "type": "header",
+        "content": "⏺ Development Status"
+      },
+      {
+        "type": "paragraph",
+        "content": "Finished / released"
+      },
+      {
+        "type": "image",
+        "src": "images/games/vb/Main.png",
+        "alt": "Rain"
+      }
+    ]
+  },
+
+  {
+    "GameID": "voltan-adventure",
+    "GameTitle": "Voltan Adventure (prototye)",
+    "MainImg": "VAMain.png",
+    "platformID": "Itch.io",
+    "platformlink": "https://voltan-games.itch.io/voltan-blob",
+    "shortDescription": "",
+    "longdescription": [
+      {
+        "type": "header",
+        "content": "⏺ N/A"
+      },
+      {
+        "type": "paragraph",
+        "content": "N/A"
+      },
+      {
+        "type": "image",
+        "src": "images/games/vb/Main.png",
+        "alt": "Rain"
+      }
+    ]
+  },
+
+  {
+    "GameID": "Template",
+    "GameTitle": "N/A",
+    "MainImg": "images/games/vb/Main.png",
+    "platformID": "Itch.io",
+    "platformlink": "https://voltan-games.itch.io/voltan-blob",
+    "shortDescription": "",
+    "longdescription": [
+      {
+        "type": "header",
+        "content": "⏺ N/A"
+      },
+      {
+        "type": "paragraph",
+        "content": "N/A"
+      },
+      {
+        "type": "image",
+        "src": "images/games/vb/Main.png",
+        "alt": "Rain"
+      }
+    ]
+  },
+
+
+  {
+    "GameID": "Template",
+    "GameTitle": "N/A",
+    "MainImg": "images/games/vb/Main.png",
+    "platformID": "Itch.io",
+    "platformlink": "https://voltan-games.itch.io/voltan-blob",
+    "shortDescription": "",
+    "longdescription": [
+      {
+        "type": "header",
+        "content": "⏺ N/A"
+      },
+      {
+        "type": "paragraph",
+        "content": "N/A"
+      },
+      {
+        "type": "image",
+        "src": "images/games/vb/Main.png",
+        "alt": "Rain"
+      }
+    ]
   }
+
 ]
