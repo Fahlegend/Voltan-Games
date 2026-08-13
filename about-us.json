@@ -17,7 +17,10 @@
         "Voice Actor"
       ],
       "socials": [
-        { "platform": "Youtube", "url": "https://www.youtube.com/@JessDevOfficial" }
+        {
+          "platform": "Youtube",
+          "url": "https://www.youtube.com/@JessDevOfficial"
+        }
       ]
     },
     {
@@ -32,14 +35,17 @@
         "Publishing Games"
       ],
       "socials": [
-        { "platform": "Tiktok", "url": "https://www.tiktok.com/@fah3479thelegend" }
+        {
+          "platform": "Tiktok",
+          "url": "https://www.tiktok.com/@fah3479thelegend"
+        }
       ]
     },
     {
       "name": "Nola",
       "roleDescription": "Responsible for:",
       "responsibilities": [
-        "Narrative design",
+        "Narrative Design",
         "Story Writer",
         "Gameplay Direction",
         "Audio Manager",
@@ -47,7 +53,10 @@
         "Voice Director"
       ],
       "socials": [
-        { "platform": "Gmail", "url": "mailto:stefsecretdesecret@gmail.com" }
+        {
+          "platform": "Gmail",
+          "url": "mailto:stefsecretdesecret@gmail.com"
+        }
       ]
     }
   ],
