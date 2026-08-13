@@ -40,9 +40,11 @@
       "roleDescription": "Responsible for:",
       "responsibilities": [
         "Narrative design",
+        "Story Writer"
         "Gameplay Direction",
         "Audio Manager",
-        "Voice Actor"
+        "Voice Actor",
+        "Voice Director"
       ],
       "socials": [
         { "platform": "Gmail", "url": "mailto:stefsecretdesecret@gmail.com" }
