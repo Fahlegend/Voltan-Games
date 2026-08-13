@@ -6,36 +6,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const sidebar = document.getElementById('sidebar');
-    const navLinks = sidebar.querySelectorAll('a');
+    const navLinks = sidebar ? sidebar.querySelectorAll('a') : [];
 
-    // Toggle sidebar
-    hamburgerBtn.addEventListener('click', (e) => {
-        sidebar.classList.toggle('active');
-        e.stopPropagation();
-    });
-
-    // Close sidebar when clicking outside
-    document.addEventListener('click', (e) => {
-
-        if (
-            sidebar.classList.contains('active') &&
-            !sidebar.contains(e.target) &&
-            e.target !== hamburgerBtn
-        ) {
-            sidebar.classList.remove('active');
-        }
-
-    });
-
-    // Close sidebar after clicking a link
-    navLinks.forEach(link => {
-
-        link.addEventListener('click', () => {
-            sidebar.classList.remove('active');
+    if (hamburgerBtn && sidebar) {
+        // Toggle sidebar
+        hamburgerBtn.addEventListener('click', (e) => {
+            sidebar.classList.toggle('active');
+            e.stopPropagation();
         });
 
-    });
+        // Close sidebar when clicking outside
+        document.addEventListener('click', (e) => {
+            if (
+                sidebar.classList.contains('active') &&
+                !sidebar.contains(e.target) &&
+                e.target !== hamburgerBtn
+            ) {
+                sidebar.classList.remove('active');
+            }
+        });
 
+        // Close sidebar after clicking a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+            });
+        });
+    }
 
     // ==========================================================
     // DYNAMIC DATA LOADING (GAMES & SOCIALS)
@@ -58,8 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.className = 'card';
 
                 const gameId = game.GameID || encodeURIComponent(game.GameTitle);
-                
-                // Get the relative image path directly from the JSON
                 const imgPath = game.GameIMG; 
 
                 card.innerHTML = `
@@ -73,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <a href="DynamicGame.html?id=${gameId}"
                            target="_self"
                            class="btn">
-                             View Game Details
+                            View Game Details
                         </a>
                     </div>
                 `;
@@ -122,7 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
             refreshFadeObserver();
         })
         .catch(error => console.error('Error fetching social entries:', error));
-
 
     // ==========================================================
     // FADE-IN ANIMATIONS
@@ -180,7 +174,6 @@ function renderLongDescription(blocks) {
                 const isVideo = block.src.match(/\.(mp4|webm|ogg|mov)$/i);
                 
                 if (isVideo) {
-                    // Pull attributes dynamically from JSON properties, fallback to sensible defaults
                     const hasControls = block.controls !== false ? 'controls' : '';
                     const isAutoplay = block.autoplay === true ? 'autoplay' : '';
                     const isMuted = block.muted === true ? 'muted' : '';
