@@ -375,12 +375,37 @@ section {
     background: #222;
     margin: 2rem 0;
 }
-
-/* ==========================================================================
+/* =0=========================================================================
    RESPONSIVE
    ========================================================================== */
 
+.dev-socials-container {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.dev-social-btn {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.8rem;
+    color: #fff;
+    background: #1a1a1a;
+    border: 1px solid var(--primary-cyan, #00f0ff);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.dev-social-btn:hover {
+    background: var(--primary-cyan, #00f0ff);
+    color: #000;
+    transform: translateY(-2px);
+}
+
 @media (max-width: 768px) {
+
     .hero {
         padding-top: 80px;
     }
@@ -388,4 +413,5 @@ section {
     h2 {
         font-size: 2rem;
     }
+
 }

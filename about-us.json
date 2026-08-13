@@ -1,0 +1,58 @@
+{
+  "introParagraphs": [
+    "Voltan Games (VG) is a small independent brand created to bring all of our creative projects together under one name.",
+    "Founded in 2023 by Faheem and Jesse, Voltan Games began as a passion project during the start of our game development journey."
+  ],
+  "teamMembers": [
+    {
+      "name": "Jesse",
+      "roleDescription": "Designer responsible for:",
+      "responsibilities": [
+        "2D Pixel Art",
+        "Visual Graphics Director",
+        "Play Testing",
+        "Game Direction",
+        "3D Modeling",
+        "UI & Art Style",
+        "Voice Actor"
+      ],
+      "socials": [
+        { "platform": "Youtube", "url": "https://www.youtube.com/@JessDevOfficial" }
+      ]
+    },
+    {
+      "name": "Faheem",
+      "roleDescription": "Responsible for:",
+      "responsibilities": [
+        "Programming Director",
+        "3D Modeling",
+        "3D Animations",
+        "Project Management Director",
+        "Game Optimization",
+        "Publishing Games"
+      ],
+      "socials": [
+        { "platform": "Tiktok", "url": "https://www.tiktok.com/@fah3479thelegend" }
+      ]
+    },
+    {
+      "name": "Nola",
+      "roleDescription": "Responsible for:",
+      "responsibilities": [
+        "Narrative design",
+        "Gameplay Direction",
+        "Audio Manager",
+        "Voice Actor"
+      ],
+      "socials": [
+        { "platform": "Gmail", "url": "mailto:stefsecretdesecret@gmail.com" }
+      ]
+    }
+  ],
+  "goalsHeading": "Our Future Goals",
+  "goalsParagraphs": [
+    "Beginning in 2026, our goal is to build a complete professional website showcasing everything we have created.",
+    "We aim to expand our collection of games while also offering high-quality 3D printed products ranging from useful everyday items to completely custom creations.",
+    "Our long-term vision is to build a recognizable and trusted brand known for creativity, quality, and innovation."
+  ]
+}
