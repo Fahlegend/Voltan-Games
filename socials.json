@@ -4,7 +4,14 @@
     "SocialTitle": "Voltan Games Devlogs (Youtube)",
     "SocialDescription": "Check out behind-the-scenes action and updates on our game development journey.",
     "SocialPlatform": "youtube",
-    "socialLink": "www.youtube.com/@VoltanGames"
+    "socialLink": "https://www.youtube.com/@VoltanGames"
+  },
+  {
+    "SocialID": "vd-sever",
+    "SocialTitle": "Voltan Development (Discord)",
+    "SocialDescription": "Check out behind-the-scenes, Game teasers, community, events, projects and chst with others in the sever.",
+    "SocialPlatform": "discord",
+    "socialLink": "https://discord.gg/q3QxQRSnv4"
   },
    {
     "SocialID": "tt-channel",
