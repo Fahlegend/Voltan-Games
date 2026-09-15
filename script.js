@@ -34,45 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // DYNAMIC DATA LOADING (GAMES, SOCIALS & ABOUT US)
     // ==========================================================
 
-    // Fetch and load Games
-    fetch('GameData.json')
-        .then(response => {
-            if (!response.ok) throw new Error('Failed to load GameData.json');
-            return response.json();
-        })
-        .then(gamesData => {
-            const gamesContainer = document.getElementById('games-container');
-            if (!gamesContainer) return;
-
-            gamesContainer.innerHTML = '';
-
-            gamesData.forEach(game => {
-                const card = document.createElement('div');
-                card.className = 'card';
-                const gameId = game.GameID || encodeURIComponent(game.GameTitle);
-                const imgPath = game.GameIMG; 
-
-                card.innerHTML = `
-                    <img src="${imgPath}"
-                         alt="${game.GameTitle} Screenshot"
-                         class="card-img"
-                         onerror="this.outerHTML='<div class=\\'card-img-placeholder\\'>${game.GameTitle}</div>'">
-                    <div class="card-content">
-                        <h3>${game.GameTitle}</h3>
-                        <p>${game.GameDescriptionShort}</p>
-                        <a href="DynamicGame.html?id=${gameId}"
-                           target="_self"
-                           class="btn">
-                           View Game Details
-                        </a>
-                    </div>
-                `;
-                gamesContainer.appendChild(card);
-            });
-            refreshFadeObserver();
-        })
-        .catch(error => console.error('Error fetching game entries:', error));
-
     // Fetch and load Socials
     fetch('socials.json')
         .then(response => {

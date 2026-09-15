@@ -16,35 +16,35 @@
   {
     "GameID": "voltan-trading",
     "GameTitle": "Voltan Trading",
-    "GameIMG": "VTMain.png",
+    "GameIMG": "images/games/vt/Main.png",
     "GameDescriptionShort": "A 2D Stratigic Trading game buy and sell stocks to become rich. Story mode is not complete (prototype)",
     "ItchIOLink": "https://voltan-games.itch.io/voltan-trading"
   },
   {
     "GameID": "voltan-store",
     "GameTitle": "3D (store) Simulation VG (Prototype)",
-    "GameIMG": "VSMain.png",
+    "GameIMG": "images/games/vs/Main.png",
     "GameDescriptionShort": "A 3D Store Management Simulator with 2D Pixel art style customers.",
     "ItchIOLink": "https://voltan-games.itch.io/3d-simulation-vg-prototype"
   },
   {
     "GameID": "voltan-honeyfarm",
     "GameTitle": "VG Honey Farming",
-    "GameIMG": "VGHFMain.png",
+    "GameIMG": "images/games/vghf/Main.png",
     "GameDescriptionShort": "A Standalone HTML file game where u own bees and sell honey to make profits *(Ai made game)",
     "ItchIOLink": "https://voltan-games.itch.io/bee-farming"
   },
   {
     "GameID": "voltan-adventure",
     "GameTitle": "Voltan Adventure (prototye)",
-    "GameIMG": "VAMain.png",
+    "GameIMG": "images/games/va/Main.png",
     "GameDescriptionShort": "A 3D proceudal survival world. Fly around in a hot air ballon and find loot to survive.",
     "ItchIOLink": "https://voltan-games.itch.io/voltan-adventure"
   },
    {
     "GameID": "voltan-spring",
     "GameTitle": "Voltan spring (prototype)",
-    "GameIMG": "VSPMain.png",
+    "GameIMG": "images/games/vsp/Main.png",
     "GameDescriptionShort": "A basic spring game where the player is a type of blob that can turn hard or act like jelly. (lost Project)",
     "ItchIOLink": "https://voltan-games.itch.io/voltan-spring"
   }

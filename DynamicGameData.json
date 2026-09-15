@@ -77,7 +77,6 @@
       }
     ]
   },
-  
   {
     "GameID": "voltan-blob",
     "GameTitle": "Voltan Blob",
@@ -130,7 +129,6 @@
       }
     ]
   },
-
   {
     "GameID": "voltan-trading",
     "GameTitle": "Voltan Trading",
@@ -149,16 +147,15 @@
       },
       {
         "type": "image",
-        "src": "images/games/vb/Main.png",
-        "alt": "Rain"
+        "src": "images/games/vt/Main.png",
+        "alt": "Voltan Trading"
       }
     ]
   },
-
   {
     "GameID": "voltan-store",
     "GameTitle": "Voltan Store",
-    "MainImg": "VSMain.png",
+    "MainImg": "images/games/vs/Main.png",
     "platformID": "Itch.io",
     "platformlink": "https://voltan-games.itch.io/3d-simulation-vg-prototype",
     "shortDescription": "A 3D Store Management Simulator with 2D Pixel art style customers/products.",
@@ -173,17 +170,15 @@
       },
       {
         "type": "image",
-        "src": "images/games/vb/Main.png",
-        "alt": "Rain"
+        "src": "images/games/vs/Main.png",
+        "alt": "3D (store) Simulation VG (Prototype)"
       }
     ]
   },
-
-
   {
     "GameID": "voltan-honeyfarm",
     "GameTitle": "VG Honey Farming",
-    "MainImg": "VGHFMain.png",
+    "MainImg": "images/games/vghf/Main.png",
     "platformID": "Itch.io",
     "platformlink": "https://voltan-games.itch.io/bee-farming",
     "shortDescription": "(Ai) created standalone html tycoon game, where u own a bee farm.",
@@ -198,16 +193,15 @@
       },
       {
         "type": "image",
-        "src": "images/games/vb/Main.png",
-        "alt": "Rain"
+        "src": "images/games/vghf/Main.png",
+        "alt": "VG Honey Farming"
       }
     ]
   },
-
   {
     "GameID": "voltan-adventure",
     "GameTitle": "Voltan Adventure (prototye)",
-    "MainImg": "VAMain.png",
+    "MainImg": "images/games/va/Main.png",
     "platformID": "Itch.io",
     "platformlink": "https://voltan-games.itch.io/voltan-blob",
     "shortDescription": "",
@@ -222,12 +216,11 @@
       },
       {
         "type": "image",
-        "src": "images/games/vb/Main.png",
-        "alt": "Rain"
+        "src": "images/games/va/Main.png",
+        "alt": "Voltan Adventure (prototye)"
       }
     ]
   },
-
   {
     "GameID": "Template",
     "GameTitle": "N/A",
@@ -251,8 +244,6 @@
       }
     ]
   },
-
-
   {
     "GameID": "Template",
     "GameTitle": "N/A",
@@ -273,8 +264,21 @@
         "type": "image",
         "src": "images/games/vb/Main.png",
         "alt": "Rain"
+      }
+    ]
+  },
+  {
+    "GameID": "voltan-spring",
+    "GameTitle": "Voltan spring (prototype)",
+    "MainImg": "images/games/vsp/Main.png",
+    "platformID": "Itch.io",
+    "platformlink": "https://voltan-games.itch.io/voltan-spring",
+    "shortDescription": "A basic spring game where the player is a type of blob that can turn hard or act like jelly. (lost Project)",
+    "longdescription": [
+      {
+        "content": "An experimental prototype exploring springy movement. This project is no longer in active development.",
+        "type": "paragraph"
       }
     ]
   }
-
 ]
