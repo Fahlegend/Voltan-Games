@@ -181,7 +181,7 @@
     "MainImg": "images/games/vghf/Main.png",
     "platformID": "Itch.io",
     "platformlink": "https://voltan-games.itch.io/bee-farming",
-    "shortDescription": "(Ai) created standalone html tycoon game, where u own a bee farm.",
+    "shortDescription": "Build and grow your own bee farm in a standalone tycoon game.",
     "longdescription": [
       {
         "type": "header",
@@ -218,52 +218,6 @@
         "type": "image",
         "src": "images/games/va/Main.png",
         "alt": "Voltan Adventure (prototye)"
-      }
-    ]
-  },
-  {
-    "GameID": "Template",
-    "GameTitle": "N/A",
-    "MainImg": "images/games/vb/Main.png",
-    "platformID": "Itch.io",
-    "platformlink": "https://voltan-games.itch.io/voltan-blob",
-    "shortDescription": "",
-    "longdescription": [
-      {
-        "type": "header",
-        "content": "⏺ N/A"
-      },
-      {
-        "type": "paragraph",
-        "content": "N/A"
-      },
-      {
-        "type": "image",
-        "src": "images/games/vb/Main.png",
-        "alt": "Rain"
-      }
-    ]
-  },
-  {
-    "GameID": "Template",
-    "GameTitle": "N/A",
-    "MainImg": "images/games/vb/Main.png",
-    "platformID": "Itch.io",
-    "platformlink": "https://voltan-games.itch.io/voltan-blob",
-    "shortDescription": "",
-    "longdescription": [
-      {
-        "type": "header",
-        "content": "⏺ N/A"
-      },
-      {
-        "type": "paragraph",
-        "content": "N/A"
-      },
-      {
-        "type": "image",
-        "src": "images/games/vb/Main.png",
-        "alt": "Rain"
       }
     ]
   },

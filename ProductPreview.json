@@ -1,0 +1,77 @@
+{
+  "printing": [
+    {
+      "id": "desk-stand-preview",
+      "name": "Desk stand — layout preview",
+      "description": "A sample layout showing how your 3D printed products will look. Replace this example with your own product information and photographs.",
+      "price": "R 120.00",
+      "priceNote": "Example price only · not an item for sale",
+      "platform": "MakerWorld",
+      "link": "https://makerworld.com/@Voltan_Games",
+      "linkLabel": "Visit our MakerWorld",
+      "images": [
+        {
+          "src": "images/previews/stand-front.svg",
+          "alt": "Concept desk stand front view"
+        },
+        {
+          "src": "images/previews/stand-side.svg",
+          "alt": "Concept desk stand side view"
+        },
+        {
+          "src": "images/previews/stand-detail.svg",
+          "alt": "Concept desk stand layer detail"
+        }
+      ],
+      "features": [
+        "Space for your product highlights",
+        "A gallery with swipe, arrow and thumbnail controls",
+        "A direct link to the platform you choose"
+      ],
+      "details": [
+        {
+          "heading": "A place for the story",
+          "text": "Use this area to describe what your product does, who it is for and what makes it useful."
+        },
+        {
+          "heading": "Made to fit your product",
+          "text": "Add materials, dimensions, care instructions and notes about your design. Only show details that apply to this product."
+        }
+      ],
+      "specifications": {
+        "Material": "Add your material",
+        "Dimensions": "Add your dimensions",
+        "Finish": "Add your finish"
+      }
+    }
+  ],
+  "merch": [
+    {
+      "id": "tote-preview",
+      "name": "Voltan tote — layout preview",
+      "description": "A sample merchandise layout. Your real products use this same page, with their own pictures, price and platform link.",
+      "price": "R 180.00",
+      "priceNote": "Example price only · not an item for sale",
+      "images": [
+        {
+          "src": "images/previews/tote-front.svg",
+          "alt": "Concept Voltan tote front view"
+        },
+        {
+          "src": "images/previews/tote-detail.svg",
+          "alt": "Concept Voltan tote print detail"
+        }
+      ],
+      "details": [
+        {
+          "heading": "Make it yours",
+          "text": "Describe the design, fit and materials of your merchandise here."
+        }
+      ],
+      "specifications": {
+        "Size": "Add actual sizes",
+        "Material": "Add actual material"
+      }
+    }
+  ]
+}

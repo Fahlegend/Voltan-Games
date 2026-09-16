@@ -31,7 +31,7 @@
     "GameID": "voltan-honeyfarm",
     "GameTitle": "VG Honey Farming",
     "GameIMG": "images/games/vghf/Main.png",
-    "GameDescriptionShort": "A Standalone HTML file game where u own bees and sell honey to make profits *(Ai made game)",
+    "GameDescriptionShort": "Build a bee farm, care for your bees and sell honey in this standalone tycoon game.",
     "ItchIOLink": "https://voltan-games.itch.io/bee-farming"
   },
   {
@@ -41,7 +41,7 @@
     "GameDescriptionShort": "A 3D proceudal survival world. Fly around in a hot air ballon and find loot to survive.",
     "ItchIOLink": "https://voltan-games.itch.io/voltan-adventure"
   },
-   {
+  {
     "GameID": "voltan-spring",
     "GameTitle": "Voltan spring (prototype)",
     "GameIMG": "images/games/vsp/Main.png",

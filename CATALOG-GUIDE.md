@@ -16,7 +16,7 @@ Add an entry inside either array using this structure (replace the example with 
 }
 ```
 
-Put 3D printing photos in images/3d-printing and merchandise photos in images/merch. Use forward slashes in JSON paths. JPG, PNG, WebP and GIF images work. An empty or broken image displays an Image coming soon placeholder. An empty link displays Coming soon!!! instead of a purchase button. Add your actual product or listing URL when ready.
+Put 3D printing photos in images/3d-printing and merchandise photos in images/merch. Use forward slashes in JSON paths. JPG, PNG, WebP and GIF images work. An empty or broken image displays an Image coming soon placeholder. Products open the shared product-detail page. An empty platform link displays Platform link coming soon there. Add your actual product or listing URL when ready.
 
 The single Home top-bar search includes every catalog. Dedicated collection pages each have one category search. Names, descriptions, tags and category names are searchable. Prices are optional display text; the website does not process orders.
 
@@ -26,3 +26,6 @@ Run with your existing Live Server and open index.html. Saving files refreshes t
 
 ## Featured homepage and collection pages
 The homepage displays up to three items per catalog. Set featured to true on an item to prioritize it; otherwise the first three entries are shown. Games, printing, and merch each have their own HTML page with a scoped search in the fixed top bar. Home's top-bar search opens catalog.html and searches all categories. Empty product catalogs keep the Coming soon!!! message.
+
+See PRODUCT-AND-ANALYTICS-GUIDE.md for gallery images, product detail fields, local previews and visitor analytics.
+
